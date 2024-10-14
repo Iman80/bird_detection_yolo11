@@ -13,6 +13,7 @@ RUN apt-get update && \
     curl \
     git \
     wget \
+    libgl1-mesa-glx \
     python3.10 \
     python3.10-dev \
     python3.10-distutils \

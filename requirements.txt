@@ -3,3 +3,13 @@ https://download.pytorch.org/whl/cu118/torchaudio-2.1.2%2Bcu118-cp310-cp310-linu
 https://download.pytorch.org/whl/cu118/torchvision-0.16.2%2Bcu118-cp310-cp310-linux_x86_64.whl
 
 ultralytics==8.3.12
+roboflow==1.1.47
+python-dotenv==1.0.1
+numpy==1.26.4
+
+fastapi[all]==0.110.0
+Pillow==9.5.0
+pyfiglet==1.0.2
+loguru==0.7.0
+toml==0.10.2
+gradio==4.21.0
