@@ -1,6 +1,6 @@
 <div align="center">
 
-# No Plate Detection with YOLOv11 
+# Fine-tuning YOLOv11 with Gradio Inference
 
     
 [![YOLOv11](https://img.shields.io/badge/YOLOv11-Custom-orange)](https://github.com/AlexeyAB/darknet)
@@ -8,19 +8,36 @@
 [![Gradio](https://img.shields.io/badge/Gradio-4.21.0-FF4B4B?logo=gradio&logoColor=white)](https://gradio.app/)
 
 
-A customized YOLOv11 model fine-tuned for object detection, integrated with Gradio for a user-friendly inference interface.
+A fine-tuned YOLOv11 model for detecting cars without license plates, integrated with Gradio for an interactive inference interface.
 
 </div>
 
 ## 📌 Introduction
-This repository contains a fine-tuned implementation of the YOLOv11 model integrated with Gradio to provide a web-based interface for real-time object detection. The model is trained using a custom dataset and aims to facilitate easy deployment and user interaction through an intuitive UI.
+This repository showcases a fine-tuned YOLOv11 model specifically trained to detect license plates of cars. Leveraging the powerful capabilities of YOLOv11 and the ease of use provided by Gradio, we offer a web-based interface for real-time inference.
+
+The dataset was prepared using Roboflow, ensuring that the data is in the correct format for YOLOv11. The model was fine-tuned on this custom dataset to enhance its performance on the specific task of detecting cars without license plates.
 
 <br>
 
 ## 📦 Main Technologies
 - <strong>YOLOv11</strong> - The latest version of the YOLO object detection model, designed for fast and accurate real-time detection.
+- <strong>Roboflow</strong> - A tool for preparing and managing datasets, which was used to format the data for YOLOv11.
 - <strong>Gradio</strong> - A Python library for creating UIs for machine learning models, enabling easy sharing and interaction.
 - <strong>Python 3.10</strong> - A versatile programming language that allows for the implementation of machine learning and web applications.
+
+<br>
+
+## 📝 Fine-tuning Process
+
+The fine-tuning process involved the following steps:
+
+1. __Data Preparation with Roboflow__: The dataset consisting of images of cars without license plates was prepared using Roboflow. Roboflow was used to annotate the images and export the dataset in the YOLOv11 format.
+
+2. __Model Training__: The pre-trained YOLOv11 model from Ultralytics was fine-tuned on the custom dataset. Training scripts are provided in the src/core/training.py file.
+
+3. __Model Evaluation__: The trained model was evaluated on a validation set to assess its performance. Evaluation metrics and results are available in the runs/train directory.
+
+4. __Inference Interface with Gradio__: Gradio was used to create an interactive web interface for the model, allowing users to upload images and receive predictions in real-time.
 
 <br>
 
@@ -81,9 +98,36 @@ python scripts/download_data_roboflow.py
 python main.py
 
 # Run the Gradio application
+# To run gradio app, set MODE=infer in .env file and change use_pretrained to True in configs/config.toml
 python main.py
-Open your web browser and navigate to http://localhost:7860 to access the Gradio interface.
 ```
+Open your web browser and navigate to http://localhost:7860 to access the Gradio interface.
+
+<br>
+
+## 🖼️ Using the Gradio Interface
+The Gradio interface allows you to:
+
+Upload an image of a car.
+The model will predict and highlight areas where cars without license plates are detected.
+View the output image directly in the browser.
+
+<br>
+
+## 📝 Data Preparation with Roboflow
+
+Roboflow was instrumental in:
+
+- __Annotation__: Efficiently annotating images for the presence of cars without license plates.
+- __Dataset Management__: Splitting the dataset into training, validation, and testing sets.
+- __Export Formats__: Exporting the dataset in YOLOv11 format, ready for training.
+
+To replicate the data preparation:
+
+1. Sign up on Roboflow.
+2. Upload your dataset and perform annotations.
+3. Export the dataset in YOLOv11 format.
+4. Place the downloaded data into the data directory.
 
 <br>
 
@@ -102,4 +146,5 @@ Open your web browser and navigate to http://localhost:7860 to access the Gradio
 
 ## References
 - [YOLOv11](https://docs.ultralytics.com/models/yolo11/)
+- [Roboflow](https://roboflow.com/)
 - [Gradio](https://www.gradio.app/docs)
